@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartelera de Películas</title>
+    <link rel="icon" type="image/x-icon" href="imagenes/icono.png">
+    <style>
+        @font-face {
+            font-family: 'HarryPotter';
+            src: url('HarryP.ttf') format('truetype');
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #153f67;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 20px;
+            color: white;
+            font-family: 'HarryPotter', sans-serif;
+            font-size: 2.2rem;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        .movie {
+            background: rgb(24, 28, 87);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
+            color: white;
+        }
+        .movie h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        .movie p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .movie img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .movie iframe {
+            width: 100%;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .regresar-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #23205a, #23205a);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px;
+        }
+        .regresar-btn:hover {
+            background: linear-gradient(135deg, #343082, #343082);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        /* 📌 Media Queries para Responsividad */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            .container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            .movie {
+                padding: 10px;
+            }
+            .movie iframe {
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .movie iframe {
+                height: 210px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Cartelera de Películas Harry Potter</h1>
+    <a href="index.html" class="regresar-btn">Regresar al Inicio</a><br>
+    <div class="container" id="movie-container"></div>
+    <script>
+        const movies = [
+            { title: "La Piedra Filosofal", image: "imagenes/piedraFilosofal.png", year: "2001", video: "https://drive.google.com/file/d/1PjJ_nXptI9OvSljcQ3qlcn05oYPh19QK/preview" },
+            { title: "La Cámara Secreta", image: "imagenes/camaraSecreta.png", year: "2002", video: "https://drive.google.com/file/d/1Yakxo1yAm3sekGtJmBGYy5mjDFK5rPW9/preview" },
+            { title: "El Prisionero de Azkaban", image: "imagenes/prisioneroAzkaban.png", year: "2004", video: "https://drive.google.com/file/d/1_e42t9gnkBF70yBHNUrO20U5_Iyq8Zqn/preview" },
+            { title: "El Cáliz de Fuego", image: "imagenes/calizFuego.png", year: "2004", video: "https://drive.google.com/file/d/1Vd6MoPeUXAyvBsMey_KZs_ezGBtJXISp/preview" },
+            { title: "La Orden del Fénix", image: "imagenes/ordenFenix.png", year: "2007", video: "https://drive.google.com/file/d/1PjJ_nXptI9OvSljcQ3qlcn05oYPh19QK/preview" },
+            { title: "El Misterio del Príncipe", image: "imagenes/misterioPrincipe.jpg", year: "2009", video: "https://drive.google.com/file/d/1PjJ_nXptI9OvSljcQ3qlcn05oYPh19QK/preview" },
+            { title: "Las Reliquias de la Muerte: Parte 1", image: "imagenes/reliquiasMuerte1.png", year: "2010", video: "https://drive.google.com/file/d/1PjJ_nXptI9OvSljcQ3qlcn05oYPh19QK/preview" },
+            { title: "Las Reliquias de la Muerte: Parte 2", image: "imagenes/reliquiasMuerte2.png", year: "2011", video: "https://drive.google.com/file/d/1PjJ_nXptI9OvSljcQ3qlcn05oYPh19QK/preview" }
+        ];
+
+        const container = document.getElementById("movie-container");
+
+        movies.forEach(movie => {
+            const movieElement = document.createElement("div");
+            movieElement.classList.add("movie");
+            movieElement.innerHTML = `
+                <h3>${movie.title}</h3>
+                <p>Año: ${movie.year}</p>
+                <img src="${movie.image}" alt="${movie.title}">
+                <br><br>
+                <iframe src="${movie.video}" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            `;
+            container.appendChild(movieElement);
+        });
+
+        // 🎬 Pausar otros videos cuando uno se reproduce
+        document.addEventListener("click", (event) => {
+            if (event.target.tagName === "IFRAME") {
+                document.querySelectorAll("iframe").forEach(iframe => {
+                    if (iframe !== event.target) {
+                        iframe.src = iframe.src; // Recarga el src para pausar el video
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
