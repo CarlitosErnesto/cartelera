@@ -8,10 +8,24 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body class="bg-gray-900 text-white">
+    <script>
+        // Verificar si el usuario está autenticado
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            // Redirigir al login si no está autenticado
+            window.location.href = "login.html";
+        }
+    </script>
     <header class="text-center py-5 bg-gray-800 text-3xl font-bold">Cartelera de Películas</header>
+    
+    <!-- Botón de redirección al login -->
+    <div class="text-center mt-4">
+        <a href="login.html" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Iniciar sesión</a>
+    </div>
+
     <div class="text-center">
         <a href="cartelera.html" class="mt-6 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Ver Cartelera Completa</a>
     </div>
+
     <section class="w-full max-w-4xl mx-auto py-10">
         <div class="swiper-container">
             <div class="swiper-wrapper">
