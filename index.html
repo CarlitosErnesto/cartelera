@@ -6,11 +6,12 @@
     <title>Cartelera de Películas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="icon" type="image/x-icon" href="imagenes/icono.png">
 </head>
 <body class="bg-gray-900 text-white">
     <script>
         // Verificar si el usuario está autenticado
-        if (localStorage.getItem("isLoggedIn") !== "true") {
+        if (sessionStorage.getItem("isLoggedIn") !== "true") {
             // Redirigir al login si no está autenticado
             window.location.href = "login.html";
         }

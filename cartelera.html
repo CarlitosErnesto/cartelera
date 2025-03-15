@@ -84,11 +84,12 @@
 <body>
     <script>
         // Verificar si el usuario está autenticado
-        if (localStorage.getItem("isLoggedIn") !== "true") {
+        if (sessionStorage.getItem("isLoggedIn") !== "true") {
             // Redirigir al login si no está autenticado
             window.location.href = "login.html";
         }
     </script>
+    
     <h1>Cartelera de Películas Harry Potter</h1>
     <div class="container" id="movie-container"></div>
     
