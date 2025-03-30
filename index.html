@@ -1,68 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartelera de Películas</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <link rel="icon" type="image/x-icon" href="imagenes/icono.png">
-</head>
-<body class="bg-gray-900 text-white">
-    <script>
-        // Verificar si el usuario está autenticado
-        if (sessionStorage.getItem("isLoggedIn") !== "true") {
-            // Redirigir al login si no está autenticado
-            window.location.href = "login.html";
-        }
-    </script>
-
-    <header class="text-center py-5 bg-gray-800 text-3xl font-bold">Cartelera de Películas</header>
-    
-    <!-- Botón de redirección al login -->
-    <div class="text-center mt-4">
-        <a href="login.html" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Iniciar sesión</a>
-    </div>
-
-    <div class="text-center">
-        <a href="cartelera.html" class="mt-6 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Ver Cartelera Completa</a>
-    </div>
-
-    <section class="w-full max-w-4xl mx-auto py-10">
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="imagenes/carrusel3.png" alt="Película 1" class="rounded-xl"></div>
-                <div class="swiper-slide"><img src="imagenes/carrusel1.png" alt="Película 2" class="rounded-xl"></div>
-                <div class="swiper-slide"><img src="imagenes/carrusel2.png" alt="Película 3" class="rounded-xl"></div>
-            </div>
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cartelera de Películas</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <link rel="icon" type="image/x-icon" href="imagenes/icono.png">
+    </head>
+    <body class="bg-gray-900 text-white">
+        <script>
+            // Verificar si el usuario está autenticado
+            if (sessionStorage.getItem("isLoggedIn") !== "true") {
+                // Redirigir al login si no está autenticado
+                window.location.href = "login.html";
+            }
+        </script>
+        <header class="text-center py-5 bg-gray-800 text-3xl font-bold">Cartelera de Películas</header>
+        <!-- Botón de redirección al login -->
+        <div class="text-center mt-4">
+            <a href="login.html" class="inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Iniciar sesión</a>
         </div>
-    </section>
-    
-    <section class="w-full max-w-4xl mx-auto py-10 text-center">
-        <h2 class="text-2xl font-bold mb-4">Información Importante</h2>
-        <p class="text-lg">Consulta los horarios de las funciones y reserva tus boletos en línea para evitar filas. Disfruta de descuentos especiales los días miércoles y combos exclusivos en dulcería.</p>
-        <p class="mt-4 text-lg">Recuerda que algunas películas pueden tener restricciones de edad. Consulta la clasificación antes de comprar tu boleto.</p>
-    </section>
-    
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper-container', {
-            loop: true,
-            autoplay: {
-                delay: 3000,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-        });
-    </script>
-</body>
+        <div class="text-center">
+            <a href="cartelera.html" class="mt-6 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Ver Cartelera Completa</a>
+        </div>
+        <section class="w-full max-w-4xl mx-auto py-10">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="imagenes/carrusel3.png" alt="Película 1" class="rounded-xl"></div>
+                    <div class="swiper-slide"><img src="imagenes/carrusel1.png" alt="Película 2" class="rounded-xl"></div>
+                    <div class="swiper-slide"><img src="imagenes/carrusel2.png" alt="Película 3" class="rounded-xl"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+        <section class="w-full max-w-4xl mx-auto py-10 text-center">
+            <h2 class="text-2xl font-bold mb-4">Información Importante</h2>
+            <p class="text-lg">Consulta los horarios de las funciones y reserva tus boletos en línea para evitar filas. Disfruta de descuentos especiales los días miércoles y combos exclusivos en dulcería.</p>
+            <p class="mt-4 text-lg">Recuerda que algunas películas pueden tener restricciones de edad. Consulta la clasificación antes de comprar tu boleto.</p>
+        </section>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            const swiper = new Swiper('.swiper-container', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        </script>
+    </body>
 </html>
